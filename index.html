@@ -10,60 +10,10 @@
         <h1>Jubicamp Soundboard</h1>
 
         <h2>Short Sounds</h2>
-        <button onclick="new Audio('sounds/alarm.mp3').play()">Alarm</button>
-        <button onclick="new Audio('sounds/bass-drop.mp3').play()">Bass drop</button>
-        <button onclick="new Audio('sounds/boom.mp3').play()">Boom</button>
-        <button onclick="new Audio('sounds/bruh.mp3').play()">Bruh</button>
-        <button onclick="new Audio('sounds/horn.m4a').play()">Horn</button>
-        <button onclick="new Audio('sounds/ahh.m4a').play()">Ahh</button>
-        <button onclick="new Audio('sounds/ahh-run.m4a').play()">Ahh run</button>
-        <button onclick="new Audio('sounds/wait.m4a').play()">Wait what the hell</button>
-        <button onclick="new Audio('sounds/bonk.mp3').play()">Bonk</button>
-        <button onclick="new Audio('sounds/clang.mp3').play()">Clang</button>
-        <button onclick="new Audio('sounds/clang-mega.mp3').play()">Clang Mega</button>
-        <button onclick="new Audio('sounds/hard-bass.mp3').play()">Russian Hard Bass</button>
-        <button onclick="new Audio('sounds/biem.mp3').play()">Biem</button>
-        <button onclick="new Audio('sounds/wonker-bonker.mp3').play()">Wonker Bonker</button>
-        <button onclick="new Audio('sounds/samsung-alert.mp3').play()">Samsung Alert</button>
-        <button onclick="new Audio('sounds/wololo.mp3').play()">Age of Empires Wololo</button>
-        <button onclick="new Audio('sounds/roblox-oof.mp3').play()">Roblox Oof</button>
-        <button onclick="new Audio('sounds/fart.mp3').play()">Fart</button>
-        <button onclick="new Audio('sounds/virus.mp3').play()">Your computer has virus</button>
-        <button onclick="new Audio('sounds/windows-xp-startup.mp3').play()">Windows XP Startup</button>
-        <button onclick="new Audio('sounds/windows-xp-shutdown.mp3').play()">Windows XP Shutdown</button>
-        <button onclick="new Audio('sounds/windows-xp-error.mp3').play()">Windows XP Error</button>
-        <button onclick="new Audio('sounds/moments-later.m4a').play()">A few moments later</button>
-        <button onclick="new Audio('sounds/5-hours-later.m4a').play()">5 hours later</button>
-        <button onclick="new Audio('sounds/2000-years-later.m4a').play()">2000 years later</button>
-        <button onclick="new Audio('sounds/crickets.m4a').play()">Crickets</button>
-        <button onclick="new Audio('sounds/steek-aan.m4a').play()">Steek aan dat ding</button>
-        <button onclick="new Audio('sounds/wthelly.m4a').play()">What the helly</button>
-        <button onclick="new Audio('sounds/among-us-reveal.mp3').play()">Among Us Reveal</button>
-        <button onclick="new Audio('sounds/fortnite-dance.mp3').play()">Fortnite Dance</button>
-        <button onclick="new Audio('sounds/fortnite-knocked.mp3').play()">Fortnite Knocked</button>
-        <button onclick="new Audio('sounds/mario-kart-here-we-go.m4a').play()">Mario Kart Here we go!</button>
-        <button onclick="new Audio('sounds/mario-kart-failure.m4a').play()">Mario Kart Failure</button>
-        <button onclick="new Audio('sounds/sitcom.m4a').play()">Sitcom we will be back</button>
-        <button onclick="new Audio('sounds/breaking-news.mp3').play()">Breaking News</button>
-        <button onclick="new Audio('sounds/ps1-startup.m4a').play()">Playstation 1 startup</button>
-        <button onclick="new Audio('sounds/ps2-startup.m4a').play()">Playstation 2 startup</button>
-        <button onclick="new Audio('sounds/gamecube-startup.m4a').play()">Gamecube startup</button>
-        <button onclick="new Audio('sounds/nds-startup.m4a').play()">NDS startup</button>
-        <button onclick="new Audio('sounds/mission-failed.mp3').play()">Mission Failed</button>
-        <button onclick="new Audio('sounds/scream.mp3').play()">Wilhelm scream</button>
-        <button onclick="new Audio('sounds/wow.mp3').play()">Wow</button>
-        <button onclick="new Audio('sounds/sad-violin.mp3').play()">Sad Violin</button>
-        <button onclick="new Audio('sounds/goofy-car.mp3').play()">Goofy Car</button>
-        <button onclick="new Audio('sounds/italian-brainrot-ringtone.mp3').play()">Italian Brainrot Ringtone</button>
+        <div id="short-sounds"></div>
 
         <h2>Long Sounds</h2>
-        <button onclick="new Audio('sounds/jubicamp-lied.mp3').play()">Jubicamp Lied</button>
-        <button onclick="new Audio('sounds/dail-up.m4a').play()">Dial Up</button>
-        <button onclick="new Audio('sounds/multiverse.m4a').play()">Multiverse</button>
-        <button onclick="new Audio('sounds/time-warp.m4a').play()">Time Warp</button>
-        <button onclick="new Audio('sounds/mii.m4a').play()">Mii Channel</button>
-        <button onclick="new Audio('sounds/elevator.m4a').play()">Elevator</button>
-        <button onclick="new Audio('sounds/homebrew-channel.m4a').play()">Wii Homebrew Channel</button>
+        <div id="long-sounds"></div>
 
         <h2>Robot Voice</h2>
         <textarea id="robotText" rows="3" cols="40" placeholder="Type text for robot voice..."></textarea>
@@ -73,6 +23,87 @@
         <p>Made by <a href="https://bplaat.nl/">Bas</a> en Benji</p>
 
         <script type="module">
+            const sounds = [
+                { name: 'Alarm', url: 'sounds/alarm.mp3', isShort: true },
+                { name: 'Bass drop', url: 'sounds/bass-drop.mp3', isShort: true },
+                { name: 'Boom', url: 'sounds/boom.mp3', isShort: true },
+                { name: 'Bruh', url: 'sounds/bruh.mp3', isShort: true },
+                { name: 'Horn', url: 'sounds/horn.m4a', isShort: true },
+                { name: 'Ahh', url: 'sounds/ahh.m4a', isShort: true },
+                { name: 'Ahh run', url: 'sounds/ahh-run.m4a', isShort: true },
+                { name: 'Wait what the hell', url: 'sounds/wait.m4a', isShort: true },
+                { name: 'Bonk', url: 'sounds/bonk.mp3', isShort: true },
+                { name: 'Clang', url: 'sounds/clang.mp3', isShort: true },
+                { name: 'Clang Mega', url: 'sounds/clang-mega.mp3', isShort: true },
+                { name: 'Russian Hard Bass', url: 'sounds/hard-bass.mp3', isShort: true },
+                { name: 'Biem', url: 'sounds/biem.mp3', isShort: true },
+                { name: 'Wonker Bonker', url: 'sounds/wonker-bonker.mp3', isShort: true },
+                { name: 'Samsung Alert', url: 'sounds/samsung-alert.mp3', isShort: true },
+                { name: 'Age of Empires Wololo', url: 'sounds/wololo.mp3', isShort: true },
+                { name: 'Roblox Oof', url: 'sounds/roblox-oof.mp3', isShort: true },
+                { name: 'Fart', url: 'sounds/fart.mp3', isShort: true },
+                { name: 'Your computer has virus', url: 'sounds/virus.mp3', isShort: true },
+                { name: 'Windows XP Startup', url: 'sounds/windows-xp-startup.mp3', isShort: true },
+                { name: 'Windows XP Shutdown', url: 'sounds/windows-xp-shutdown.mp3', isShort: true },
+                { name: 'Windows XP Error', url: 'sounds/windows-xp-error.mp3', isShort: true },
+                { name: 'A few moments later', url: 'sounds/moments-later.m4a', isShort: true },
+                { name: '5 hours later', url: 'sounds/5-hours-later.m4a', isShort: true },
+                { name: '2000 years later', url: 'sounds/2000-years-later.m4a', isShort: true },
+                { name: 'Crickets', url: 'sounds/crickets.m4a', isShort: true },
+                { name: 'Steek aan dat ding', url: 'sounds/steek-aan.m4a', isShort: true },
+                { name: 'What the helly', url: 'sounds/wthelly.m4a', isShort: true },
+                { name: 'Among Us Reveal', url: 'sounds/among-us-reveal.mp3', isShort: true },
+                { name: 'Fortnite Dance', url: 'sounds/fortnite-dance.mp3', isShort: true },
+                { name: 'Fortnite Knocked', url: 'sounds/fortnite-knocked.mp3', isShort: true },
+                { name: 'Mario Kart Here we go!', url: 'sounds/mario-kart-here-we-go.m4a', isShort: true },
+                { name: 'Mario Kart Failure', url: 'sounds/mario-kart-failure.m4a', isShort: true },
+                { name: 'Sitcom we will be back', url: 'sounds/sitcom.m4a', isShort: true },
+                { name: 'Breaking News', url: 'sounds/breaking-news.mp3', isShort: true },
+                { name: 'Playstation 1 startup', url: 'sounds/ps1-startup.m4a', isShort: true },
+                { name: 'Playstation 2 startup', url: 'sounds/ps2-startup.m4a', isShort: true },
+                { name: 'Gamecube startup', url: 'sounds/gamecube-startup.m4a', isShort: true },
+                { name: 'NDS startup', url: 'sounds/nds-startup.m4a', isShort: true },
+                { name: 'Mission Failed', url: 'sounds/mission-failed.mp3', isShort: true },
+                { name: 'Wilhelm scream', url: 'sounds/scream.mp3', isShort: true },
+                { name: 'Wow', url: 'sounds/wow.mp3', isShort: true },
+                { name: 'Sad Violin', url: 'sounds/sad-violin.mp3', isShort: true },
+                { name: 'Goofy Car', url: 'sounds/goofy-car.mp3', isShort: true },
+                { name: 'Italian Brainrot Ringtone', url: 'sounds/italian-brainrot-ringtone.mp3', isShort: true },
+                { name: 'Jubicamp Lied', url: 'sounds/jubicamp-lied.mp3', isShort: false },
+                { name: 'Dial Up', url: 'sounds/dail-up.m4a', isShort: false },
+                { name: 'Multiverse', url: 'sounds/multiverse.m4a', isShort: false },
+                { name: 'Time Warp', url: 'sounds/time-warp.m4a', isShort: false },
+                { name: 'Mii Channel', url: 'sounds/mii.m4a', isShort: false },
+                { name: 'Elevator', url: 'sounds/elevator.m4a', isShort: false },
+                { name: 'Wii Homebrew Channel', url: 'sounds/homebrew-channel.m4a', isShort: false },
+            ];
+
+            let seed = 1;
+            function random() {
+                const x = Math.sin(seed++) * 10000;
+                return x - Math.floor(x);
+            }
+
+            function createButton(sound) {
+                const btn = document.createElement('button');
+                btn.textContent = sound.name;
+                btn.style.backgroundColor = `hsl(${Math.floor(random() * 360)}, 70%, 40%)`;
+                btn.addEventListener('click', () => {
+                    new Audio(sound.url).play();
+                });
+                return btn;
+            }
+            const shortContainer = document.getElementById('short-sounds');
+            const longContainer = document.getElementById('long-sounds');
+            sounds.forEach((sound) => {
+                const btn = createButton(sound);
+                if (sound.isShort) {
+                    shortContainer.appendChild(btn);
+                } else {
+                    longContainer.appendChild(btn);
+                }
+            });
+
             document.getElementById('robotSpeakButton').addEventListener('click', function () {
                 const text = document.getElementById('robotText').value;
                 const utterance = new SpeechSynthesisUtterance(text);
