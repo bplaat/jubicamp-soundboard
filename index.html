@@ -9,11 +9,8 @@
     <body>
         <h1>Jubicamp Soundboard</h1>
 
-        <h2>Short Sounds</h2>
-        <div id="short-sounds"></div>
-
-        <h2>Long Sounds</h2>
-        <div id="long-sounds"></div>
+        <h2>Sounds</h2>
+        <div id="sounds"></div>
 
         <h2>Robot Voice</h2>
         <textarea id="robotText" rows="3" cols="40" placeholder="Type text for robot voice..."></textarea>
@@ -86,24 +83,17 @@
 
             function createButton(sound) {
                 const btn = document.createElement('button');
-                btn.textContent = sound.name;
+                btn.textContent = sound.name + (sound.isShort ? '' : ' (Long)');
                 btn.style.backgroundColor = `hsl(${Math.floor(random() * 360)}, 70%, 40%)`;
-                btn.addEventListener('click', () => {
-                    new Audio(sound.url).play();
-                });
+                btn.addEventListener('click', () => new Audio(sound.url).play());
                 return btn;
             }
-            const shortContainer = document.getElementById('short-sounds');
-            const longContainer = document.getElementById('long-sounds');
-            sounds.forEach((sound) => {
-                const btn = createButton(sound);
-                if (sound.isShort) {
-                    shortContainer.appendChild(btn);
-                } else {
-                    longContainer.appendChild(btn);
-                }
-            });
+            const soundsContainer = document.getElementById('sounds');
+            for (const sound of sounds) {
+                soundsContainer.appendChild(createButton(sound));
+            }
 
+            // Robot voice
             document.getElementById('robotSpeakButton').addEventListener('click', function () {
                 const text = document.getElementById('robotText').value;
                 const utterance = new SpeechSynthesisUtterance(text);
