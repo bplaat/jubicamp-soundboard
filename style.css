@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     background-color: #f0f0f0;
-    padding: 20px;
+    padding: 16px;
     color: #333;
 }
 
@@ -15,9 +15,9 @@ a:hover {
 }
 
 button {
-    display: block;
-    width: 100%;
-    max-width: 400px;
+    display: inline-block;
+    width: calc(50% - 16px);
+    max-width: 300px;
     margin: 8px auto;
     padding: 16px 0;
     font-size: 20px;
