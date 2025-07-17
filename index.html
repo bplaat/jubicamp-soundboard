@@ -12,6 +12,7 @@
         <h2>Short Sounds</h2>
         <button onclick="new Audio('sounds/boom.mp3').play()">Boom</button>
         <button onclick="new Audio('sounds/horn.m4a').play()">Horn</button>
+        <button onclick="new Audio('sounds/ahh.m4a').play()">Ahh</button>
         <button onclick="new Audio('sounds/ahh-run.m4a').play()">Ahh run</button>
         <button onclick="new Audio('sounds/wait.m4a').play()">Wait what the hell</button>
         <button onclick="new Audio('sounds/bonk.mp3').play()">Bonk</button>
@@ -32,6 +33,19 @@
         <button onclick="new Audio('sounds/time-warp.m4a').play()">Time Warp</button>
         <button onclick="new Audio('sounds/mii.m4a').play()">Mii Channel</button>
 
+        <h2>Robot Voice</h2>
+        <textarea id="robotText" rows="3" cols="40" placeholder="Type text for robot voice..."></textarea>
+        <button id="robotSpeakButton">Speak</button>
+
         <p>Made by <a href="https://bplaat.nl/">Bas</a> en Benji</p>
+
+        <script type="module">
+            document.getElementById('robotSpeakButton').addEventListener('click', function () {
+                const text = document.getElementById('robotText').value;
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'nl';
+                window.speechSynthesis.speak(utterance);
+            });
+        </script>
     </body>
 </html>
