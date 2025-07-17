@@ -1,3 +1,3 @@
-# bplaat/jubicamp-soundboard
+# Jubicamp Soundboard
 
 https://bplaat.github.io/jubicamp-soundboard
