@@ -21,6 +21,8 @@ const sounds = [
     { name: 'Russian Hard Bass', url: 'sounds/hard-bass.mp3', category: 'short' },
     { name: 'Biem', url: 'sounds/biem.mp3', category: 'sfx' },
     { name: 'Acid Wonker Bonker', url: 'sounds/wonker-bonker.mp3', category: 'short' },
+    { name: 'Unox Theme', url: 'sounds/unox-theme.mp3', category: 'short' },
+    { name: 'iOS Marimba Phone', url: 'sounds/marimba.mp3', category: 'short' },
     { name: 'Samsung Alert', url: 'sounds/samsung-alert.mp3', category: 'short' },
     { name: 'Age of Empires Wololo', url: 'sounds/wololo.mp3', category: 'sfx' },
     { name: 'Roblox Oof', url: 'sounds/roblox-oof.mp3', category: 'sfx' },
@@ -38,10 +40,10 @@ const sounds = [
     { name: 'Steek aan dat ding', url: 'sounds/steek-aan.m4a', category: 'short' },
     { name: 'What the helly', url: 'sounds/wthelly.m4a', category: 'short' },
     { name: 'Among Us Reveal', url: 'sounds/among-us-reveal.mp3', category: 'short' },
-    { name: 'Fortnite Dance', url: 'sounds/fortnite-dance.mp3', category: 'short' },
-    { name: 'Fortnite Knocked', url: 'sounds/fortnite-knocked.mp3', category: 'short' },
-    { name: 'Mario Kart Here we go!', url: 'sounds/mario-kart-here-we-go.m4a', category: 'short' },
-    { name: 'Mario Kart Failure', url: 'sounds/mario-kart-failure.m4a', category: 'short' },
+    { name: 'Fortnite Dance', url: 'sounds/fortnite-dance.mp3', category: 'game' },
+    { name: 'Fortnite Knocked', url: 'sounds/fortnite-knocked.mp3', category: 'game' },
+    { name: 'Mario Kart Here we go!', url: 'sounds/mario-kart-here-we-go.m4a', category: 'game' },
+    { name: 'Mario Kart Failure', url: 'sounds/mario-kart-failure.m4a', category: 'game' },
     { name: 'Sitcom we will be back', url: 'sounds/sitcom.m4a', category: 'short' },
     { name: 'Breaking News', url: 'sounds/breaking-news.mp3', category: 'short' },
     { name: 'Entering Heaven', url: 'sounds/heaven.mp3', category: 'short' },
@@ -49,11 +51,15 @@ const sounds = [
     { name: 'Playstation 2 startup', url: 'sounds/ps2-startup.m4a', category: 'short' },
     { name: 'Gamecube startup', url: 'sounds/gamecube-startup.m4a', category: 'short' },
     { name: 'NDS startup', url: 'sounds/nds-startup.m4a', category: 'short' },
-    { name: 'Mission Failed', url: 'sounds/mission-failed.mp3', category: 'short' },
+    { name: 'Apple startup', url: 'sounds/apple-startup.m4a', category: 'short' },
+    { name: 'Mission Failed', url: 'sounds/mission-failed.mp3', category: 'game' },
+    { name: 'Terrorists win', url: 'sounds/terrorists-win.mp3', category: 'game' },
     { name: 'Wilhelm scream', url: 'sounds/scream.mp3', category: 'short' },
     { name: 'Wow', url: 'sounds/wow.mp3', category: 'short' },
     { name: 'Sad Violin', url: 'sounds/sad-violin.mp3', category: 'short' },
+    { name: 'Buurman en Buurman', url: 'sounds/buurman-en-buurman.mp3', category: 'sfx' },
     { name: 'Goofy Car', url: 'sounds/goofy-car.mp3', category: 'short' },
+    { name: 'NS Ding Dong', url: 'sounds/ns-ding-dong.mp3', category: 'sfx' },
     { name: 'Italian Brainrot Ringtone', url: 'sounds/italian-brainrot-ringtone.mp3', category: 'short' },
     { name: 'Jubicamp Lied', url: 'sounds/jubicamp-lied.mp3', category: 'long' },
     { name: 'Dial Up', url: 'sounds/dail-up.m4a', category: 'long' },
@@ -62,6 +68,7 @@ const sounds = [
     { name: 'Mii Channel', url: 'sounds/mii.m4a', category: 'long' },
     { name: 'Elevator', url: 'sounds/elevator.m4a', category: 'long' },
     { name: 'Wii Homebrew Channel', url: 'sounds/homebrew-channel.m4a', category: 'long' },
+    { name: 'Slagroombus', url: 'sounds/slagroombus.m4a', category: 'short' },
 ];
 sounds.sort((a, b) => a.name.localeCompare(b.name));
 sounds.sort((a, b) => a.category.localeCompare(b.category));
@@ -70,7 +77,7 @@ const searchInput = document.getElementById('soundsSearch');
 const soundsContainer = document.getElementById('sounds');
 function createButton(sound) {
     const btn = document.createElement('button');
-    btn.textContent = sound.name;
+    btn.textContent = `${sound.name} (${sound.category})`;
     btn.style.backgroundColor = `hsl(${Math.floor(random() * 360)}, 70%, 40%)`;
     btn.addEventListener('click', () => new Audio(sound.url).play());
     return btn;
