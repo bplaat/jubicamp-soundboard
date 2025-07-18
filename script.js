@@ -24,8 +24,13 @@ const sounds = [
     { name: 'Unox Theme', url: 'sounds/unox-theme.mp3', category: 'short' },
     { name: 'iOS Marimba Phone', url: 'sounds/marimba.mp3', category: 'short' },
     { name: 'Samsung Alert', url: 'sounds/samsung-alert.mp3', category: 'short' },
-    { name: 'Age of Empires Wololo', url: 'sounds/wololo.mp3', category: 'sfx' },
+    { name: 'AoE Wololo', url: 'sounds/wololo.mp3', category: 'sfx' },
+    { name: 'AoE Start the Game', url: 'sounds/start-the-game.ogg', category: 'sfx' },
     { name: 'Roblox Oof', url: 'sounds/roblox-oof.mp3', category: 'sfx' },
+    { name: 'Rizz', url: 'sounds/rizz.mp3', category: 'sfx' },
+    { name: 'Minecraft Villager', url: 'sounds/minecraft-villager.mp3', category: 'game' },
+    { name: 'Minecraft Eating', url: 'sounds/minecraft-eating.mp3', category: 'game' },
+    { name: 'Minecraft Drinking', url: 'sounds/minecraft-drinking.mp3', category: 'game' },
     { name: 'Fart', url: 'sounds/fart.mp3', category: 'sfx' },
     { name: 'Discord Notification', url: 'sounds/discord-notification.mp3', category: 'short' },
     { name: 'Discord Call', url: 'sounds/discord-call.mp3', category: 'short' },
@@ -33,6 +38,7 @@ const sounds = [
     { name: 'Windows XP Startup', url: 'sounds/windows-xp-startup.mp3', category: 'short' },
     { name: 'Windows XP Shutdown', url: 'sounds/windows-xp-shutdown.mp3', category: 'short' },
     { name: 'Windows XP Error', url: 'sounds/windows-xp-error.mp3', category: 'short' },
+    { name: 'Volkswagen Das Auto', url: 'sounds/volkswagen-das-auto.mp3', category: 'short' },
     { name: 'A few moments later', url: 'sounds/moments-later.m4a', category: 'time' },
     { name: '5 hours later', url: 'sounds/5-hours-later.m4a', category: 'time' },
     { name: '2000 years later', url: 'sounds/2000-years-later.m4a', category: 'time' },
@@ -66,6 +72,7 @@ const sounds = [
     { name: 'Multiverse', url: 'sounds/multiverse.m4a', category: 'long' },
     { name: 'Time Warp', url: 'sounds/time-warp.m4a', category: 'long' },
     { name: 'Mii Channel', url: 'sounds/mii.m4a', category: 'long' },
+    { name: 'Mii Techno', url: 'sounds/mii-techno.m4a', category: 'long' },
     { name: 'Elevator', url: 'sounds/elevator.m4a', category: 'long' },
     { name: 'Wii Homebrew Channel', url: 'sounds/homebrew-channel.m4a', category: 'long' },
     { name: 'Slagroombus', url: 'sounds/slagroombus.m4a', category: 'short' },
@@ -73,13 +80,31 @@ const sounds = [
 sounds.sort((a, b) => a.name.localeCompare(b.name));
 sounds.sort((a, b) => a.category.localeCompare(b.category));
 
+const audioContext = new AudioContext();
+const audioBufferCache = {};
+async function getAudioBuffer(url) {
+    if (audioBufferCache[url]) {
+        return audioBufferCache[url];
+    }
+    const response = await fetch(url);
+    const arrayBuffer = await response.arrayBuffer();
+    const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+    audioBufferCache[url] = audioBuffer;
+    return audioBuffer;
+}
+
 const searchInput = document.getElementById('soundsSearch');
 const soundsContainer = document.getElementById('sounds');
 function createButton(sound) {
     const btn = document.createElement('button');
     btn.textContent = `${sound.name} (${sound.category})`;
     btn.style.backgroundColor = `hsl(${Math.floor(random() * 360)}, 70%, 40%)`;
-    btn.addEventListener('click', () => new Audio(sound.url).play());
+    btn.addEventListener('click', async () => {
+        const source = audioContext.createBufferSource();
+        source.buffer = await getAudioBuffer(sound.url);
+        source.connect(audioContext.destination);
+        source.start(0);
+    });
     return btn;
 }
 function renderSounds(filter = '') {
