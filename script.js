@@ -38,7 +38,7 @@ const sounds = [
     { name: 'Windows XP Shutdown', url: 'sounds/windows-xp-shutdown.mp3', category: 'short' },
     { name: 'Windows XP Error', url: 'sounds/windows-xp-error.mp3', category: 'short' },
     { name: 'Lidl beste in brood', url: 'sounds/lidl.m4a', category: 'brand' },
-    { name: 'Kruidvat', url: 'sounds/kruidvat.m4a', category: 'brand' },
+    { name: 'Kruidvat', url: 'sounds/kruidvat.mp3', category: 'brand' },
     { name: 'Unox Theme', url: 'sounds/unox-theme.mp3', category: 'brand' },
     { name: 'Volkswagen Das Auto', url: 'sounds/volkswagen-das-auto.mp3', category: 'brand' },
     { name: 'AH Hamburgers met koring', url: 'sounds/ah-hamburgers.m4a', category: 'brand' },
